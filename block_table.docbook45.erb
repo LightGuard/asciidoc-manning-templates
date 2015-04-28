@@ -1,5 +1,5 @@
-<%#encoding:UTF-8%><<%= (tag_name = title? ? 'table' : 'informaltable') %> id="<%= id %>" >
-  <title><%= title %></title>
+<%#encoding:UTF-8%><<%= (tag_name = title? ? 'table' : 'informaltable') %><%if id%> id="<%= id %>" <% end %>>
+ <% if title %><title><%= title %></title><% end %>
   <% if attr? :width %>
   <?dbhtml table-width="<%= attr :width %>"?>
   <?dbfo table-width="<%= attr :width %>"?>
@@ -8,7 +8,7 @@
   <tgroup cols="<%= attr :colcount %>">
     <% @columns.each do |col| %>
     <% end %>
-    <% [:head, :foot, :body].select {|tblsec| !rows[tblsec].empty? }.each do |tblsec| %>
+    <% [:head, :body, :foot].select {|tblsec| !rows[tblsec].empty? }.each do |tblsec| %>
     <t<%= tblsec %>>
       <% @rows[tblsec].each do |row| %>
       <row>
