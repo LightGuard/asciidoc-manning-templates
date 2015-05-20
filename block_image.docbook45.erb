@@ -1,7 +1,14 @@
-<%#encoding:UTF-8%><%#encoding:UTF-8%><figure <%if id%> id="<%= id %>" <% end %> > <title><%= title %></title>
+<%#encoding:UTF-8%><%#encoding:UTF-8%>
+<% if [:sidebar, :admonition].include? @parent.context %>
+<para>
+<% end %>
+<figure <%if id%> id="<%= id %>" <% end %> > <title><%= title %></title>
   <mediaobject>
     <imageobject>
       <imagedata fileref="<%= image_uri(attr :target) %>" />
     </imageobject>
   </mediaobject>
 </figure>
+<% if [:sidebar, :admonition].include? @parent.context %> 
+</para>
+<% end %>
