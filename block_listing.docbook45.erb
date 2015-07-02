@@ -7,7 +7,7 @@
 <programlisting xml:space="preserve"><%= content %></programlisting>
 <%
     idx = @parent.blocks.index(self)
-    next_block = @parent.blocks[idx + 1]
+    next_block = @parent.blocks[idx]
     if !next_block.nil? && next_block.context == :colist 
 %>
 <%= next_block.render.chomp %>
